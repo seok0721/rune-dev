@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "export ADMIN_PASS=`openssl rand -hex 10`" > /etc/admin-openrc
+echo "export CEILOMETER_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export CEILOMETER_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export CINDER_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export CINDER_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export DASH_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export DEMO_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export GLANCE_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export GLANCE_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export HEAT_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export HEAT_DOMAIN_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export HEAT_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export KEYSTONE_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export NEUTRON_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export NEUTRON_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export NOVA_DBPASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export NOVA_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export RABBIT_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc
+echo "export SWIFT_PASS=`openssl rand -hex 10`" >> /etc/admin-openrc

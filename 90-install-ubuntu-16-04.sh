@@ -78,7 +78,7 @@ cp 09-init-nova-compute.sh /usr/local/bin
 /usr/local/bin/09-init-nova-compute.sh
 
 # Install neutron
-apt-get install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
+apt-get -y install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
 cp 10-init-neutron.sh /usr/local/bin
 /usr/local/bin/10-init-neutron.sh
 

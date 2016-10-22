@@ -68,10 +68,24 @@ RUN apt-get -y install nova-api nova-conductor nova-consoleauth nova-novncproxy 
 COPY 08-init-nova.sh /usr/local/bin
 RUN /usr/local/bin/08-init-nova.sh
 
-##############
+# Pre-setup for nova-compute installaion.
+COPY etc/default/keyboard /etc/default/keyboard
+#COPY etc/default/keyboard /etc/default/console-setup
+#RUN mkdir -p /etc/console-setup
+#COPY etc/console-setup/* /etc/console-setup/
+#COPY etc/vimrc /etc/vimrc
+#RUN locale-gen ko_KR.UTF-8
+
+# Install nova compute
+# Because of libvirt-bin packages are updated.
+RUN apt-get update 
+#RUN apt-get -y install dialog libreadline-dev
+#RUN apt-get -y install nova-compute
 COPY 09-init-nova-compute.sh /usr/local/bin
-RUN /usr/local/bin/09-init-nova-compute.sh
-#RUN apt-get --force-yes -y install nova-compute
+#RUN /usr/local/bin/09-init-nova-compute.sh
+
+# Install neutron
+#RUN apt-get install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
 
 # For debugging
 COPY 99-awake-server.sh /usr/local/bin

@@ -79,9 +79,8 @@ cp 09-init-nova-compute.sh /usr/local/bin
 
 # Install neutron
 apt-get install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent
-cp 10-init-neutron.sh /usr/loca/bin
+cp 10-init-neutron.sh /usr/local/bin
 /usr/local/bin/10-init-neutron.sh
 
 # For debugging
 #cp 99-awake-server.sh /usr/local/bin
-#apt-get -y install vim

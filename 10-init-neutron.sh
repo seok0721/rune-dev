@@ -60,11 +60,14 @@ sed -i -- "s/\[vxlan\]/[vxlan]\n\nenable_vxlan = True\nlocal_ip = $OVERLAY_INTER
 sed -i -- "s/\[securitygroup\]/[securitygroup]\n\nenable_security_group = True\nfirewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver\n/g" /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 sed -i -- "s/\[DEFAULT\]/[DEFAULT]\n\ninterface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver\nexternal_network_bridge =\n/g" /etc/neutron/l3_agent.ini
-sed -i -- "s/\[DEFAULT\]/[DEFAULT]\n\ninterface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver\ndhcp_driver = neutron.agent.linux.dhcp.Dnsmasq\nenable_isolated_metadata = True\n/g" /etc/neutron/dhcp_agent.ini
+#sed -i -- "s/\[DEFAULT\]/[DEFAULT]\n\ninterface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver\ndhcp_driver = neutron.agent.linux.dhcp.Dnsmasq\nenable_isolated_metadata = True\n/g" /etc/neutron/dhcp_agent.ini
+sed -i -- "s/^\/.*//g" /etc/neutron/dhcp_agent.init
 
 neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head
 
+service libvirt-bin start
 service nova-api restart
+service nova-scheduler restart
 service neutron-server restart
 service neutron-linuxbridge-agent restart
 service neutron-dhcp-agent restart
